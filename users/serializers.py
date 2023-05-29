@@ -11,4 +11,12 @@ class OrdersSerializers(serializers.ModelSerializer):
         model = Orders
         fields = "__all__"
 
-   
+class StudentsAddressSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = StudentsAddress
+        fields = "__all__"        
+class StudentsDetailsAddressSerializers(serializers.ModelSerializer):
+    address = StudentsAddressSerializers()
+    class Meta:
+        model = Students
+        fields = ('first_name','surname','mobile_number','Birth','address')
