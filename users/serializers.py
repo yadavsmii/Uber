@@ -14,9 +14,9 @@ class OrdersSerializers(serializers.ModelSerializer):
 class StudentsAddressSerializers(serializers.ModelSerializer):
     class Meta:
         model = StudentsAddress
-        fields = "__all__"        
+        fields = "__all__"
 class StudentsDetailsAddressSerializers(serializers.ModelSerializer):
-    address = StudentsAddressSerializers()
+    students_addresses = StudentsAddressSerializers(many=True)
     class Meta:
         model = Students
-        fields = ('first_name','surname','mobile_number','Birth','address')
+        fields = ('first_name','surname','mobile_number','birth','students_addresses')
